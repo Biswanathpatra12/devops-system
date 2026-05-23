@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  app1:
+    image: docker/getting-started
+
+  app2:
+    image: docker/getting-started
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - app1
+      - app2
